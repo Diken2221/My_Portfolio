@@ -438,26 +438,56 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            /* Make header height dynamic to contain stacked items */
+            .header-nav {
+                flex-direction: column;
+                align-items: center; /* Center logo and nav links */
+                padding: 1rem;
+                height: auto; /* Allow header to expand */
+            }
+            .nav-links {
+                margin-top: 1rem;
+                flex-grow: 0;
+                justify-content: center; /* Center the links */
+                width: 100%;
+                gap: 1.5rem;
+            }
+
+            /* Adjust hero section for stacked layout */
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: calc(var(--header-height) + 2rem);
+                padding-top: 10rem; /* Increased padding to account for taller auto-height header */
+                justify-content: center; /* Center content vertically */
+            }
+
+            /* Adjust the bordered box for mobile */
+            .hero-border-container {
+                flex-direction: column; /* Stack content inside the box */
+                border-radius: 20px; /* Uniform rounded corners */
+                padding: 2rem; /* Symmetrical padding */
+                align-items: center; /* Center photo and text */
             }
             .hero-content {
                 max-width: 100%;
                 margin-bottom: 2rem;
             }
             .hero-photo-container {
-                width: 250px;
-                height: 250px;
+                width: 200px; /* Slightly smaller for mobile */
+                height: 200px;
+                margin-left: 0; /* Remove margin from desktop layout */
             }
-            .hero h1 { font-size: 3rem; }
-            .hero p.tagline { font-size: 1.2rem; }
-            .cta-buttons { flex-direction: column; }
-            .nav-links { gap: 1.5rem; }
-            .card-container, .contact-grid { grid-template-columns: 1fr; }
-            .header-nav { flex-direction: column; align-items: flex-start; padding: 1rem; }
-            .nav-links { margin-top: 1rem; flex-grow: 0; justify-content: space-between; width: 100%; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p.tagline { font-size: 1.1rem; }
+            
+            /* Center the buttons and make them stack */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center; /* Center buttons within the container */
+            }
+            .card-container, .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
